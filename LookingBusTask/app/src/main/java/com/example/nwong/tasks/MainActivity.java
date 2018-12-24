@@ -28,6 +28,7 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
@@ -39,7 +40,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.gms.location.places.Places;
 import com.google.android.gms.location.places.GeoDataClient;
 import com.google.maps.GeoApiContext;
-
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -71,11 +71,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private AutoCompleteTextView mDestination;
     private AutoCompleteTextView mStart;
 
-    private String destination;
-    private String start;
+    private String destinationLatlng;
+    private String startLatlng;
 
     private String DIRECTIONS_URL = "https://maps.googleapis.com/maps/api/directions/json";
-    private String API_KEY = "AIzaSyCCe9qpiUro4-M4Y6MzQ2bSFgCZ_IO7S9A";
+    private String API_KEY = "AIzaSyCx8XJD1bSjLMFkMPVx1ILvwz810X-vUCc";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,11 +89,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         if(isServiceOK()){
             initMap();
         }
-        String query = String.format("?origin=%s&destination=%s&key=%s&mode=%s&alternatives=%s",
-                "37.78594,-122.47111", "37.77963,-122.47067", API_KEY, "transit", "true");
-        String url = DIRECTIONS_URL + query;
-        Log.d(TAG,"TRYING TO CONNECT");
-        new HttpGetTask().execute(url);
     }
     public void init(){
 
@@ -122,44 +117,72 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     private void setDestination() {
-        destination = mDestination.getText().toString();
+        String userInput = mDestination.getText().toString();
 
-        if (start != "" && destination != "") {
+        if (userInput != null && !userInput.isEmpty()) {
+            destinationLatlng = geoLocate(userInput, false);
+        }
+
+        if (startLatlng != null && !startLatlng.isEmpty() &&
+                destinationLatlng != null && !destinationLatlng.isEmpty()) {
             // find bus route
+            findRoutes();
         }
     }
 
     private void setStart() {
-        start = mStart.getText().toString();
+        String userInput = mStart.getText().toString();
 
-        if (start!= "") {
+        if (userInput != null && !userInput.isEmpty()) {
             // set origin
-//            geoLocate(start);
+            startLatlng = geoLocate(userInput, false);
         }
 
-        if (start != "" && destination != "") {
+        if (startLatlng != null && !startLatlng.isEmpty() &&
+                destinationLatlng != null && !destinationLatlng.isEmpty()) {
             // find bus route
+            findRoutes();
         }
     }
 
-    private void geoLocate(){
-        String searchString = mDestination.getText().toString();
+    private void findRoutes() {
+        // safety checks
+        if(startLatlng == null || startLatlng.isEmpty() ||
+                destinationLatlng == null || destinationLatlng.isEmpty()||
+                API_KEY == null || API_KEY.isEmpty()){
+            Log.d(TAG, "Values are empty");
+            return;
+        }
+        String query = String.format("?origin=%s&destination=%s&key=%s&mode=%s&alternatives=%s",
+                startLatlng, destinationLatlng, API_KEY, "transit", "true");
+        String url = DIRECTIONS_URL + query;
+        Log.d(TAG,"TRYING TO CONNECT");
+        new HttpGetTask().execute(url);
+    }
+
+    private String geoLocate(String mSearchString, boolean shouldPosition){
 
         Geocoder geocoder = new Geocoder(MainActivity.this);
         List<Address> list = new ArrayList<>();
+        LatLng p1 = null;
 
         try{
-            list = geocoder.getFromLocationName(searchString, 1);
+            list = geocoder.getFromLocationName(mSearchString,5);
+            if(list == null){
+                return null;
+            }
+            Address location = list.get(0);
+            p1 =  new LatLng(location.getLatitude(), location.getLongitude());
+            if (shouldPosition) {
+                moveCamera(new LatLng(location.getLatitude(),location.getLongitude()), DEFAULT_ZOOM, location.getAddressLine(0));
+            }
+            String position = p1.toString();
+            return position.replaceAll("[()]", "");
         }catch(IOException e){
-            Log.e(TAG, "GeoLocate IOException: " + e.getMessage());
-        }
-        if(list.size() > 0){
-            Address address = list.get(0);
-
-            Log.d(TAG, "GeoLocate Found: " + address.toString());
-            moveCamera(new LatLng(address.getLatitude(),address.getLongitude()), DEFAULT_ZOOM, address.getAddressLine(0));
+            Log.e(TAG, "GeoLocate: error:" + e.getMessage().toString() );
         }
 
+        return null;
     }
     private void getPermmissionLocation(){
         String[] permission = {Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION};
@@ -246,6 +269,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             Log.d(TAG, "http result: " + result);
             return;
         }
+        //TODO Prompt message
+        Log.d(TAG, "Response returned empty.");
     }
     private class HttpGetTask extends AsyncTask<String, Integer, String> {
         @Override
