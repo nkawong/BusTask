@@ -1,0 +1,116 @@
+{
+  "geocoded_waypoints": [
+    {
+      "geocoder_status": "OK",
+      "place_id": "ChIJK5CeRxiHhYARaVKUOM5HFWE",
+      "types": [
+        "premise"
+      ]
+    },
+    {
+      "geocoder_status": "OK",
+      "place_id": "ChIJdbp43RWHhYARkA1ob3p9NwA",
+      "types": [
+        "street_address"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "bounds": {
+        "northeast": {
+          "lat": 37.7859383,
+          "lng": -122.4706902
+        },
+        "southwest": {
+          "lat": 37.7796291,
+          "lng": -122.4711489
+        }
+      },
+      "copyrights": "Map data ©2018 Google",
+      "legs": [
+        {
+          "distance": {
+            "text": "0.4 mi",
+            "value": 703
+          },
+          "duration": {
+            "text": "9 mins",
+            "value": 564
+          },
+          "end_address": "457 12th Ave, San Francisco, CA 94118, USA",
+          "end_location": {
+            "lat": 37.7796291,
+            "lng": -122.4706902
+          },
+          "start_address": "115 12th Ave, San Francisco, CA 94118, USA",
+          "start_location": {
+            "lat": 37.7859383,
+            "lng": -122.4711489
+          },
+          "steps": [
+            {
+              "distance": {
+                "text": "0.4 mi",
+                "value": 703
+              },
+              "duration": {
+                "text": "9 mins",
+                "value": 564
+              },
+              "end_location": {
+                "lat": 37.7796291,
+                "lng": -122.4706902
+              },
+              "html_instructions": "Walk to 457 12th Ave, San Francisco, CA 94118, USA",
+              "polyline": {
+                "points": "caseFtcojVrGSL?fJYLAfAEzGSPAB?TAdEM"
+              },
+              "start_location": {
+                "lat": 37.7859383,
+                "lng": -122.4711489
+              },
+              "steps": [
+                {
+                  "distance": {
+                    "text": "0.4 mi",
+                    "value": 703
+                  },
+                  "duration": {
+                    "text": "9 mins",
+                    "value": 564
+                  },
+                  "end_location": {
+                    "lat": 37.7796291,
+                    "lng": -122.4706902
+                  },
+                  "html_instructions": "Head <b>south</b> on <b>12th Ave</b> toward <b>California St</b><div style=\"font-size:0.9em\">Destination will be on the right</div>",
+                  "polyline": {
+                    "points": "caseFtcojVrGSL?fJYLAfAEzGSPAB?TAdEM"
+                  },
+                  "start_location": {
+                    "lat": 37.7859383,
+                    "lng": -122.4711489
+                  },
+                  "travel_mode": "WALKING"
+                }
+              ],
+              "travel_mode": "WALKING"
+            }
+          ],
+          "traffic_speed_entry": [],
+          "via_waypoint": []
+        }
+      ],
+      "overview_polyline": {
+        "points": "caseFtcojVlf@{A"
+      },
+      "summary": "12th Ave",
+      "warnings": [
+        "Walking directions are in beta.    Use caution – This route may be missing sidewalks or pedestrian paths."
+      ],
+      "waypoint_order": []
+    }
+  ],
+  "status": "OK"
+}

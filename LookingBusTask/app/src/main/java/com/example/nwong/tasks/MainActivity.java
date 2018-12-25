@@ -5,7 +5,6 @@ import android.app.Dialog;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -16,7 +15,6 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.location.Location;
@@ -33,22 +31,25 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.location.places.Places;
 import com.google.android.gms.location.places.GeoDataClient;
-import com.google.maps.GeoApiContext;
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
 import java.net.*;
+import java.io.InputStream;
+import java.util.Scanner;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.OnConnectionFailedListener {
     private static final String TAG = "The Map Activity";
@@ -58,7 +59,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private boolean mLocationPermissionGranted = false;
     private static final int ERROR_DIALOG_REQUEST = 9001;
     private static final float DEFAULT_ZOOM =15f;
-    private static final LatLngBounds latLongBounds = new LatLngBounds(new LatLng(-40, -168),new LatLng(71,136));
+    private static final String DIRECTIONS_URL = "https://maps.googleapis.com/maps/api/directions/json";
+    private static final String API_KEY = "AIzaSyCx8XJD1bSjLMFkMPVx1ILvwz810X-vUCc";
+
+    //temporary bounds
+   // private static final LatLngBounds latLongBounds = new LatLngBounds(new LatLng(-40, -168),new LatLng(71,136));
 
     //variables
     private GoogleMap mMap;
@@ -66,16 +71,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private PlaceAutoCompleteAdapter mPlaceAutoCompleteAdapter;
     //private GoogleApiClient mGoogleApiClient;
     protected GeoDataClient mGeoDataClient;
+    private String destinationLatlng;
+    private String startLatlng;
 
     //widgets
     private AutoCompleteTextView mDestination;
     private AutoCompleteTextView mStart;
-
-    private String destinationLatlng;
-    private String startLatlng;
-
-    private String DIRECTIONS_URL = "https://maps.googleapis.com/maps/api/directions/json";
-    private String API_KEY = "AIzaSyCx8XJD1bSjLMFkMPVx1ILvwz810X-vUCc";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,10 +91,64 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             initMap();
         }
     }
+    private void getPermmissionLocation(){
+        String[] permission = {Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION};
+
+        if(ContextCompat.checkSelfPermission(this.getApplicationContext(),FINE_LOCATION)== PackageManager.PERMISSION_GRANTED){
+
+            if(ContextCompat.checkSelfPermission(this.getApplicationContext(),COARSE_LOCATION)== PackageManager.PERMISSION_GRANTED){
+                mLocationPermissionGranted = true;
+            }
+            else{
+                ActivityCompat.requestPermissions(this, permission, LOCATION_PERMISSION_REQUEST_CODE);
+
+            }
+        }
+        else{
+            ActivityCompat.requestPermissions(this, permission, LOCATION_PERMISSION_REQUEST_CODE);
+
+        }
+    }
+
+    public boolean isServiceOK(){
+        Log.d(TAG, "isServiceOK: checking service version");
+        int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(MainActivity.this);
+
+        if(available == ConnectionResult.SUCCESS){
+            Log.d(TAG, "isServiceOK: Google Play Service is working");
+            return true;
+        }
+        else if(GoogleApiAvailability.getInstance().isUserResolvableError(available)){
+            Log.d(TAG,"isServiceOK: error has occurred, but can be fixed");
+            Dialog dialog = GoogleApiAvailability.getInstance().getErrorDialog(MainActivity.this,available,ERROR_DIALOG_REQUEST);
+            dialog.show();
+        }
+        else{
+            Toast.makeText(this, "You can't make map request", Toast.LENGTH_SHORT).show();
+        }
+        return false;
+    }
+
+    public void initMap(){
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+
+        mapFragment.getMapAsync(MainActivity.this);
+    }
+
+    @Override
+    public void onMapReady(GoogleMap map) {
+        mMap = map;
+        if(mLocationPermissionGranted){
+            getDeviceLocation();
+        }
+        init();
+    }
+
     public void init(){
 
-        mPlaceAutoCompleteAdapter = new PlaceAutoCompleteAdapter(this,mGeoDataClient,latLongBounds,null);
+        //mPlaceAutoCompleteAdapter = new PlaceAutoCompleteAdapter(this,mGeoDataClient,latLongBounds,null);
 
+        // setting up the listeners to the text fields
         mDestination.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -153,10 +208,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             Log.d(TAG, "Values are empty");
             return;
         }
-        String query = String.format("?origin=%s&destination=%s&key=%s&mode=%s&alternatives=%s",
-                startLatlng, destinationLatlng, API_KEY, "transit", "true");
+
+        // Create Url with the user input
+        String query = String.format("?origin=%s&destination=%s&mode=%s&alternatives=%s&key=%s",
+                startLatlng, destinationLatlng, "transit", "TRUE", API_KEY);
         String url = DIRECTIONS_URL + query;
-        Log.d(TAG,"TRYING TO CONNECT");
+
+        // Making the Async Web Request
+        Log.d(TAG,"TRYING TO CONNECT to " + url);
         new HttpGetTask().execute(url);
     }
 
@@ -164,44 +223,26 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         Geocoder geocoder = new Geocoder(MainActivity.this);
         List<Address> list = new ArrayList<>();
-        LatLng p1 = null;
 
         try{
             list = geocoder.getFromLocationName(mSearchString,5);
-            if(list == null){
+
+            if(list == null || list.size() == 0){
                 return null;
             }
             Address location = list.get(0);
-            p1 =  new LatLng(location.getLatitude(), location.getLongitude());
             if (shouldPosition) {
                 moveCamera(new LatLng(location.getLatitude(),location.getLongitude()), DEFAULT_ZOOM, location.getAddressLine(0));
             }
-            String position = p1.toString();
-            return position.replaceAll("[()]", "");
+            String position = String.format("%.5f,%.5f", location.getLatitude(), location.getLongitude());
+            return position;
         }catch(IOException e){
             Log.e(TAG, "GeoLocate: error:" + e.getMessage().toString() );
         }
 
         return null;
     }
-    private void getPermmissionLocation(){
-        String[] permission = {Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION};
 
-        if(ContextCompat.checkSelfPermission(this.getApplicationContext(),FINE_LOCATION)== PackageManager.PERMISSION_GRANTED){
-
-            if(ContextCompat.checkSelfPermission(this.getApplicationContext(),COARSE_LOCATION)== PackageManager.PERMISSION_GRANTED){
-                mLocationPermissionGranted = true;
-            }
-            else{
-                ActivityCompat.requestPermissions(this, permission, LOCATION_PERMISSION_REQUEST_CODE);
-
-            }
-        }
-        else{
-            ActivityCompat.requestPermissions(this, permission, LOCATION_PERMISSION_REQUEST_CODE);
-
-        }
-    }
     private void getDeviceLocation(){
         mFuseLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         try{
@@ -227,51 +268,31 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         MarkerOptions marker = new MarkerOptions().position(latLng).title(title);
         mMap.addMarker(marker);
     }
-    public void initMap(){
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
 
-        mapFragment.getMapAsync(MainActivity.this);
-    }
-    public boolean isServiceOK(){
-        Log.d(TAG, "isServiceOK: checking service version");
-        int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(MainActivity.this);
-
-        if(available == ConnectionResult.SUCCESS){
-            Log.d(TAG, "isServiceOK: Google Play Service is working");
-            return true;
-        }
-        else if(GoogleApiAvailability.getInstance().isUserResolvableError(available)){
-            Log.d(TAG,"isServiceOK: error has occurred, but can be fixed");
-            Dialog dialog = GoogleApiAvailability.getInstance().getErrorDialog(MainActivity.this,available,ERROR_DIALOG_REQUEST);
-            dialog.show();
-        }
-        else{
-            Toast.makeText(this, "You can't make map request", Toast.LENGTH_SHORT).show();
-        }
-        return false;
-    }
-
-    @Override
-    public void onMapReady(GoogleMap map) {
-        mMap = map;
-        if(mLocationPermissionGranted){
-            getDeviceLocation();
-        }
-        init();
-    }
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
-    public void logMessage(String result){
+
+
+    //Parsing the Json Response
+    public void parseMessage(String result){
         if(result !=null && !result.isEmpty()){
             Log.d(TAG, "http result: " + result);
+            try {
+                JSONObject jsonObject = new JSONObject(result);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             return;
         }
         //TODO Prompt message
         Log.d(TAG, "Response returned empty.");
     }
+
+    //Aysnc Task<Paramerters, Progress, Results>
     private class HttpGetTask extends AsyncTask<String, Integer, String> {
         @Override
         protected String doInBackground(String... urls) {
@@ -300,9 +321,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         }
 
+        //Automatically gets called after the return.
         @Override
         protected void onPostExecute(String s) {
-            logMessage(s);
+            parseMessage(s);
         }
     }
 
