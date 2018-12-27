@@ -1,116 +1,1177 @@
 {
-  "geocoded_waypoints": [
-    {
-      "geocoder_status": "OK",
-      "place_id": "ChIJK5CeRxiHhYARaVKUOM5HFWE",
-      "types": [
-        "premise"
-      ]
-    },
-    {
-      "geocoder_status": "OK",
-      "place_id": "ChIJdbp43RWHhYARkA1ob3p9NwA",
-      "types": [
-        "street_address"
-      ]
-    }
-  ],
-  "routes": [
-    {
-      "bounds": {
-        "northeast": {
-          "lat": 37.7859383,
-          "lng": -122.4706902
-        },
-        "southwest": {
-          "lat": 37.7796291,
-          "lng": -122.4711489
-        }
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJeZmm3xWHhYARhXnBg8mY3SE",
+         "types" : [ "premise" ]
       },
-      "copyrights": "Map data ©2018 Google",
-      "legs": [
-        {
-          "distance": {
-            "text": "0.4 mi",
-            "value": 703
-          },
-          "duration": {
-            "text": "9 mins",
-            "value": 564
-          },
-          "end_address": "457 12th Ave, San Francisco, CA 94118, USA",
-          "end_location": {
-            "lat": 37.7796291,
-            "lng": -122.4706902
-          },
-          "start_address": "115 12th Ave, San Francisco, CA 94118, USA",
-          "start_location": {
-            "lat": 37.7859383,
-            "lng": -122.4711489
-          },
-          "steps": [
-            {
-              "distance": {
-                "text": "0.4 mi",
-                "value": 703
-              },
-              "duration": {
-                "text": "9 mins",
-                "value": 564
-              },
-              "end_location": {
-                "lat": 37.7796291,
-                "lng": -122.4706902
-              },
-              "html_instructions": "Walk to 457 12th Ave, San Francisco, CA 94118, USA",
-              "polyline": {
-                "points": "caseFtcojVrGSL?fJYLAfAEzGSPAB?TAdEM"
-              },
-              "start_location": {
-                "lat": 37.7859383,
-                "lng": -122.4711489
-              },
-              "steps": [
-                {
-                  "distance": {
-                    "text": "0.4 mi",
-                    "value": 703
-                  },
-                  "duration": {
-                    "text": "9 mins",
-                    "value": 564
-                  },
-                  "end_location": {
-                    "lat": 37.7796291,
-                    "lng": -122.4706902
-                  },
-                  "html_instructions": "Head <b>south</b> on <b>12th Ave</b> toward <b>California St</b><div style=\"font-size:0.9em\">Destination will be on the right</div>",
-                  "polyline": {
-                    "points": "caseFtcojVrGSL?fJYLAfAEzGSPAB?TAdEM"
-                  },
-                  "start_location": {
-                    "lat": 37.7859383,
-                    "lng": -122.4711489
-                  },
-                  "travel_mode": "WALKING"
-                }
-              ],
-              "travel_mode": "WALKING"
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJ2VO0HaSHhYARL5yoW-dpRqI",
+         "types" : [ "street_address" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 37.7808461,
+               "lng" : -122.470594
+            },
+            "southwest" : {
+               "lat" : 37.7725818,
+               "lng" : -122.4983537
             }
-          ],
-          "traffic_speed_entry": [],
-          "via_waypoint": []
-        }
-      ],
-      "overview_polyline": {
-        "points": "caseFtcojVlf@{A"
+         },
+         "copyrights" : "Map data ©2018 Google",
+         "fare" : {
+            "currency" : "USD",
+            "text" : "$2.75",
+            "value" : 2.75
+         },
+         "legs" : [
+            {
+               "arrival_time" : {
+                  "text" : "4:12pm",
+                  "time_zone" : "America/Los_Angeles",
+                  "value" : 1545869544
+               },
+               "departure_time" : {
+                  "text" : "3:49pm",
+                  "time_zone" : "America/Los_Angeles",
+                  "value" : 1545868173
+               },
+               "distance" : {
+                  "text" : "2.1 mi",
+                  "value" : 3354
+               },
+               "duration" : {
+                  "text" : "23 mins",
+                  "value" : 1371
+               },
+               "end_address" : "866 38th Ave, San Francisco, CA 94121, USA",
+               "end_location" : {
+                  "lat" : 37.7725818,
+                  "lng" : -122.4981436
+               },
+               "start_address" : "435 12th Ave, San Francisco, CA 94118, USA",
+               "start_location" : {
+                  "lat" : 37.7799944,
+                  "lng" : -122.4707172
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "328 ft",
+                        "value" : 100
+                     },
+                     "duration" : {
+                        "text" : "2 mins",
+                        "value" : 91
+                     },
+                     "end_location" : {
+                        "lat" : 37.7808461,
+                        "lng" : -122.4706016
+                     },
+                     "html_instructions" : "Walk to Geary Blvd & 12th Ave",
+                     "polyline" : {
+                        "points" : "}{qeF~`ojV}BFU@C?Q@?QAQ"
+                     },
+                     "start_location" : {
+                        "lat" : 37.7799944,
+                        "lng" : -122.4707172
+                     },
+                     "steps" : [
+                        {
+                           "distance" : {
+                              "text" : "292 ft",
+                              "value" : 89
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 70
+                           },
+                           "end_location" : {
+                              "lat" : 37.7808419,
+                              "lng" : -122.4706863
+                           },
+                           "html_instructions" : "Head \u003cb\u003enorth\u003c/b\u003e on \u003cb\u003e12th Ave\u003c/b\u003e toward \u003cb\u003eGeary Blvd\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "}{qeF~`ojV}BFU@C?Q@?Q"
+                           },
+                           "start_location" : {
+                              "lat" : 37.7799944,
+                              "lng" : -122.4707172
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "36 ft",
+                              "value" : 11
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 21
+                           },
+                           "end_location" : {
+                              "lat" : 37.7808461,
+                              "lng" : -122.4706016
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eGeary Blvd\u003c/b\u003e",
+                           "maneuver" : "turn-right",
+                           "polyline" : {
+                              "points" : "gareFx`ojVAQ"
+                           },
+                           "start_location" : {
+                              "lat" : 37.7808419,
+                              "lng" : -122.4706863
+                           },
+                           "travel_mode" : "WALKING"
+                        }
+                     ],
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "1.5 mi",
+                        "value" : 2428
+                     },
+                     "duration" : {
+                        "text" : "12 mins",
+                        "value" : 718
+                     },
+                     "end_location" : {
+                        "lat" : 37.775997,
+                        "lng" : -122.493133
+                     },
+                     "html_instructions" : "Bus towards Balboa + 33rd Avenue",
+                     "polyline" : {
+                        "points" : "gareFf`ojVTA?ZFrEDhB?RDvAH`FH|EFzD@ZFtEHtEHzD?ZJrEFtD?B@ZFtEFvEHvD?ZJvEFtEFtD@^JtEFxD@\\FtEHtEJrEVAtIUNAbJW?L"
+                     },
+                     "start_location" : {
+                        "lat" : 37.780839,
+                        "lng" : -122.470601
+                     },
+                     "transit_details" : {
+                        "arrival_stop" : {
+                           "location" : {
+                              "lat" : 37.775997,
+                              "lng" : -122.493133
+                           },
+                           "name" : "33rd Ave & Balboa St"
+                        },
+                        "arrival_time" : {
+                           "text" : "4:03pm",
+                           "time_zone" : "America/Los_Angeles",
+                           "value" : 1545868983
+                        },
+                        "departure_stop" : {
+                           "location" : {
+                              "lat" : 37.780839,
+                              "lng" : -122.470601
+                           },
+                           "name" : "Geary Blvd & 12th Ave"
+                        },
+                        "departure_time" : {
+                           "text" : "3:51pm",
+                           "time_zone" : "America/Los_Angeles",
+                           "value" : 1545868265
+                        },
+                        "headsign" : "Balboa + 33rd Avenue",
+                        "line" : {
+                           "agencies" : [
+                              {
+                                 "name" : "San Francisco Municipal Transportation Agency",
+                                 "url" : "http://www.sfmta.com/"
+                              }
+                           ],
+                           "name" : "Geary",
+                           "short_name" : "38",
+                           "vehicle" : {
+                              "icon" : "//maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png",
+                              "name" : "Bus",
+                              "type" : "BUS"
+                           }
+                        },
+                        "num_stops" : 10
+                     },
+                     "travel_mode" : "TRANSIT"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.5 mi",
+                        "value" : 826
+                     },
+                     "duration" : {
+                        "text" : "9 mins",
+                        "value" : 561
+                     },
+                     "end_location" : {
+                        "lat" : 37.7725818,
+                        "lng" : -122.4981436
+                     },
+                     "html_instructions" : "Walk to 866 38th Ave, San Francisco, CA 94121, USA",
+                     "polyline" : {
+                        "points" : "_cqeFzlsjVH?LAFbE?PJdE?PH`E?PHdE?PAX@J?L?LBvA@f@fJWL?nFQ"
+                     },
+                     "start_location" : {
+                        "lat" : 37.7759985,
+                        "lng" : -122.4931017
+                     },
+                     "steps" : [
+                        {
+                           "distance" : {
+                              "text" : "30 ft",
+                              "value" : 9
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 6
+                           },
+                           "end_location" : {
+                              "lat" : 37.775881,
+                              "lng" : -122.493093
+                           },
+                           "html_instructions" : "Head \u003cb\u003esouth\u003c/b\u003e on \u003cb\u003e33rd Ave\u003c/b\u003e toward \u003cb\u003eBalboa St\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "_cqeFzlsjVH?LA"
+                           },
+                           "start_location" : {
+                              "lat" : 37.7759985,
+                              "lng" : -122.4931017
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "0.3 mi",
+                              "value" : 471
+                           },
+                           "duration" : {
+                              "text" : "6 mins",
+                              "value" : 336
+                           },
+                           "end_location" : {
+                              "lat" : 37.7756506,
+                              "lng" : -122.4983537
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eBalboa St\u003c/b\u003e",
+                           "maneuver" : "turn-right",
+                           "polyline" : {
+                              "points" : "gbqeFxlsjVFbE?PJdE?PH`E?PHdE?PAX@J?L?LBvA@f@"
+                           },
+                           "start_location" : {
+                              "lat" : 37.775881,
+                              "lng" : -122.493093
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "0.2 mi",
+                              "value" : 346
+                           },
+                           "duration" : {
+                              "text" : "4 mins",
+                              "value" : 219
+                           },
+                           "end_location" : {
+                              "lat" : 37.7725818,
+                              "lng" : -122.4981436
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003e38th Ave\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the left\u003c/div\u003e",
+                           "maneuver" : "turn-left",
+                           "polyline" : {
+                              "points" : "y`qeFtmtjVfJWL?nFQ"
+                           },
+                           "start_location" : {
+                              "lat" : 37.7756506,
+                              "lng" : -122.4983537
+                           },
+                           "travel_mode" : "WALKING"
+                        }
+                     ],
+                     "travel_mode" : "WALKING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "}{qeF~`ojViDJAc@VALlJ`@rUHpFRpKRhLZ`SZ~RVlMPjLJrEVAdJWbJW?L?EH?LAFbEJvEHrEFbGD~B@f@fJW|FQ"
+         },
+         "summary" : "",
+         "warnings" : [
+            "Walking directions are in beta.    Use caution – This route may be missing sidewalks or pedestrian paths."
+         ],
+         "waypoint_order" : []
       },
-      "summary": "12th Ave",
-      "warnings": [
-        "Walking directions are in beta.    Use caution – This route may be missing sidewalks or pedestrian paths."
-      ],
-      "waypoint_order": []
-    }
-  ],
-  "status": "OK"
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 37.7799944,
+               "lng" : -122.4703094
+            },
+            "southwest" : {
+               "lat" : 37.7725818,
+               "lng" : -122.4983591
+            }
+         },
+         "copyrights" : "Map data ©2018 Google",
+         "fare" : {
+            "currency" : "USD",
+            "text" : "$2.75",
+            "value" : 2.75
+         },
+         "legs" : [
+            {
+               "arrival_time" : {
+                  "text" : "4:14pm",
+                  "time_zone" : "America/Los_Angeles",
+                  "value" : 1545869645
+               },
+               "departure_time" : {
+                  "text" : "3:54pm",
+                  "time_zone" : "America/Los_Angeles",
+                  "value" : 1545868495
+               },
+               "distance" : {
+                  "text" : "2.0 mi",
+                  "value" : 3183
+               },
+               "duration" : {
+                  "text" : "19 mins",
+                  "value" : 1150
+               },
+               "end_address" : "866 38th Ave, San Francisco, CA 94121, USA",
+               "end_location" : {
+                  "lat" : 37.7725818,
+                  "lng" : -122.4981436
+               },
+               "start_address" : "435 12th Ave, San Francisco, CA 94118, USA",
+               "start_location" : {
+                  "lat" : 37.7799944,
+                  "lng" : -122.4707172
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "0.2 mi",
+                        "value" : 353
+                     },
+                     "duration" : {
+                        "text" : "5 mins",
+                        "value" : 304
+                     },
+                     "end_location" : {
+                        "lat" : 37.7769831,
+                        "lng" : -122.4703117
+                     },
+                     "html_instructions" : "Walk to Balboa St & 12th Ave",
+                     "polyline" : {
+                        "points" : "}{qeF~`ojVbFQL?hJWAS?S"
+                     },
+                     "start_location" : {
+                        "lat" : 37.7799944,
+                        "lng" : -122.4707172
+                     },
+                     "steps" : [
+                        {
+                           "distance" : {
+                              "text" : "0.2 mi",
+                              "value" : 340
+                           },
+                           "duration" : {
+                              "text" : "5 mins",
+                              "value" : 292
+                           },
+                           "end_location" : {
+                              "lat" : 37.7769787,
+                              "lng" : -122.4704143
+                           },
+                           "html_instructions" : "Head \u003cb\u003esouth\u003c/b\u003e on \u003cb\u003e12th Ave\u003c/b\u003e toward \u003cb\u003eAnza St\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "}{qeF~`ojVbFQL?hJWAS"
+                           },
+                           "start_location" : {
+                              "lat" : 37.7799944,
+                              "lng" : -122.4707172
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "43 ft",
+                              "value" : 13
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 12
+                           },
+                           "end_location" : {
+                              "lat" : 37.7769831,
+                              "lng" : -122.4703117
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eBalboa St\u003c/b\u003e",
+                           "maneuver" : "turn-left",
+                           "polyline" : {
+                              "points" : "ciqeF`_ojV?S"
+                           },
+                           "start_location" : {
+                              "lat" : 37.7769787,
+                              "lng" : -122.4704143
+                           },
+                           "travel_mode" : "WALKING"
+                        }
+                     ],
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "1.5 mi",
+                        "value" : 2378
+                     },
+                     "duration" : {
+                        "text" : "9 mins",
+                        "value" : 525
+                     },
+                     "end_location" : {
+                        "lat" : 37.77578099999999,
+                        "lng" : -122.497202
+                     },
+                     "html_instructions" : "Bus towards Ocean Beach",
+                     "polyline" : {
+                        "points" : "giqeFl~njVH??ZHtEDhB?`@BfAH`FH~EHxD?ZHvEFxD@ZHtEFxD@ZHtEFxD@ZFtEHtE@X@j@DnCHvEF`D?V@XHtEHvE?VH|DFxD@ZFxEHrEBxA@HBpBHvEFxDI?"
+                     },
+                     "start_location" : {
+                        "lat" : 37.777002,
+                        "lng" : -122.470313
+                     },
+                     "transit_details" : {
+                        "arrival_stop" : {
+                           "location" : {
+                              "lat" : 37.77578099999999,
+                              "lng" : -122.497202
+                           },
+                           "name" : "Balboa St & 37th Ave"
+                        },
+                        "arrival_time" : {
+                           "text" : "4:09pm",
+                           "time_zone" : "America/Los_Angeles",
+                           "value" : 1545869340
+                        },
+                        "departure_stop" : {
+                           "location" : {
+                              "lat" : 37.777002,
+                              "lng" : -122.470313
+                           },
+                           "name" : "Balboa St & 12th Ave"
+                        },
+                        "departure_time" : {
+                           "text" : "4:00pm",
+                           "time_zone" : "America/Los_Angeles",
+                           "value" : 1545868800
+                        },
+                        "headsign" : "Ocean Beach",
+                        "line" : {
+                           "agencies" : [
+                              {
+                                 "name" : "San Francisco Municipal Transportation Agency",
+                                 "url" : "http://www.sfmta.com/"
+                              }
+                           ],
+                           "name" : "Balboa",
+                           "short_name" : "31",
+                           "vehicle" : {
+                              "icon" : "//maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png",
+                              "name" : "Bus",
+                              "type" : "BUS"
+                           }
+                        },
+                        "num_stops" : 11
+                     },
+                     "travel_mode" : "TRANSIT"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.3 mi",
+                        "value" : 452
+                     },
+                     "duration" : {
+                        "text" : "5 mins",
+                        "value" : 305
+                     },
+                     "end_location" : {
+                        "lat" : 37.7725818,
+                        "lng" : -122.4981436
+                     },
+                     "html_instructions" : "Walk to 866 38th Ave, San Francisco, CA 94121, USA",
+                     "polyline" : {
+                        "points" : "oaqeFnftjV@R?PAV?L@J?LBvA@h@LAfJWL?nFQ"
+                     },
+                     "start_location" : {
+                        "lat" : 37.775759,
+                        "lng" : -122.4972005
+                     },
+                     "steps" : [
+                        {
+                           "distance" : {
+                              "text" : "348 ft",
+                              "value" : 106
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 76
+                           },
+                           "end_location" : {
+                              "lat" : 37.7756506,
+                              "lng" : -122.4983537
+                           },
+                           "html_instructions" : "Head \u003cb\u003ewest\u003c/b\u003e on \u003cb\u003eBalboa St\u003c/b\u003e toward \u003cb\u003e37th Ave\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "oaqeFnftjV@R?PAV?L@J?LBvA@h@LA"
+                           },
+                           "start_location" : {
+                              "lat" : 37.775759,
+                              "lng" : -122.4972005
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "0.2 mi",
+                              "value" : 346
+                           },
+                           "duration" : {
+                              "text" : "4 mins",
+                              "value" : 229
+                           },
+                           "end_location" : {
+                              "lat" : 37.7725818,
+                              "lng" : -122.4981436
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003e38th Ave\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the left\u003c/div\u003e",
+                           "maneuver" : "turn-left",
+                           "polyline" : {
+                              "points" : "y`qeFtmtjVfJWL?nFQ"
+                           },
+                           "start_location" : {
+                              "lat" : 37.7756506,
+                              "lng" : -122.4983537
+                           },
+                           "travel_mode" : "WALKING"
+                        }
+                     ],
+                     "travel_mode" : "WALKING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "}{qeF~`ojVpFQhJWAS?SC?H??ZN~HBhB\\vSx@hf@n@v_@h@j[VpOLhIFxDI?B?@RAh@D~B@h@LAtJWnFQ"
+         },
+         "summary" : "",
+         "warnings" : [
+            "Walking directions are in beta.    Use caution – This route may be missing sidewalks or pedestrian paths."
+         ],
+         "waypoint_order" : []
+      },
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 37.780687,
+               "lng" : -122.4707172
+            },
+            "southwest" : {
+               "lat" : 37.7725818,
+               "lng" : -122.5007186
+            }
+         },
+         "copyrights" : "Map data ©2018 Google",
+         "fare" : {
+            "currency" : "USD",
+            "text" : "$2.75",
+            "value" : 2.75
+         },
+         "legs" : [
+            {
+               "arrival_time" : {
+                  "text" : "4:14pm",
+                  "time_zone" : "America/Los_Angeles",
+                  "value" : 1545869697
+               },
+               "departure_time" : {
+                  "text" : "3:51pm",
+                  "time_zone" : "America/Los_Angeles",
+                  "value" : 1545868286
+               },
+               "distance" : {
+                  "text" : "2.3 mi",
+                  "value" : 3698
+               },
+               "duration" : {
+                  "text" : "24 mins",
+                  "value" : 1411
+               },
+               "end_address" : "866 38th Ave, San Francisco, CA 94121, USA",
+               "end_location" : {
+                  "lat" : 37.7725818,
+                  "lng" : -122.4981436
+               },
+               "start_address" : "435 12th Ave, San Francisco, CA 94118, USA",
+               "start_location" : {
+                  "lat" : 37.7799944,
+                  "lng" : -122.4707172
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "0.1 mi",
+                        "value" : 234
+                     },
+                     "duration" : {
+                        "text" : "4 mins",
+                        "value" : 215
+                     },
+                     "end_location" : {
+                        "lat" : 37.7806772,
+                        "lng" : -122.47247
+                     },
+                     "html_instructions" : "Walk to Geary Blvd & Park Presidio Blvd",
+                     "polyline" : {
+                        "points" : "}{qeF~`ojV}BF@f@@n@?XDrA?P@\\?D@b@?T?F?TQ@G?"
+                     },
+                     "start_location" : {
+                        "lat" : 37.7799944,
+                        "lng" : -122.4707172
+                     },
+                     "steps" : [
+                        {
+                           "distance" : {
+                              "text" : "246 ft",
+                              "value" : 75
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 50
+                           },
+                           "end_location" : {
+                              "lat" : 37.7806222,
+                              "lng" : -122.4707635
+                           },
+                           "html_instructions" : "Head \u003cb\u003enorth\u003c/b\u003e on \u003cb\u003e12th Ave\u003c/b\u003e toward \u003cb\u003eGeary Blvd\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "}{qeF~`ojV}BF"
+                           },
+                           "start_location" : {
+                              "lat" : 37.7799944,
+                              "lng" : -122.4707172
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "489 ft",
+                              "value" : 149
+                           },
+                           "duration" : {
+                              "text" : "2 mins",
+                              "value" : 128
+                           },
+                           "end_location" : {
+                              "lat" : 37.7806369,
+                              "lng" : -122.4724681
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eGeary Blvd\u003c/b\u003e",
+                           "maneuver" : "turn-left",
+                           "polyline" : {
+                              "points" : "{_reFfaojV@f@@n@?XDrA?P@\\?D@b@?T?F?TQ@"
+                           },
+                           "start_location" : {
+                              "lat" : 37.7806222,
+                              "lng" : -122.4707635
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "33 ft",
+                              "value" : 10
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 37
+                           },
+                           "end_location" : {
+                              "lat" : 37.7806772,
+                              "lng" : -122.47247
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003ePark Presidio Blvd\u003c/b\u003e",
+                           "maneuver" : "turn-right",
+                           "polyline" : {
+                              "points" : "_`reF|kojVG?"
+                           },
+                           "start_location" : {
+                              "lat" : 37.7806369,
+                              "lng" : -122.4724681
+                           },
+                           "travel_mode" : "WALKING"
+                        }
+                     ],
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "1.6 mi",
+                        "value" : 2513
+                     },
+                     "duration" : {
+                        "text" : "11 mins",
+                        "value" : 631
+                     },
+                     "end_location" : {
+                        "lat" : 37.77953919999999,
+                        "lng" : -122.5007186
+                     },
+                     "html_instructions" : "Bus towards Lands End - 48th Avenue",
+                     "polyline" : {
+                        "points" : "i`reFrkojVD?DvAH`FH|EHvEFtEHtEHzD?ZJrEHtEFtEFvEHvD?ZJvEFtEHtEJtEHvEFtEHtEJrE?XF|DHrEFzD?@@ZFrEHvEHrEHxD?Dc@B"
+                     },
+                     "start_location" : {
+                        "lat" : 37.780687,
+                        "lng" : -122.472423
+                     },
+                     "transit_details" : {
+                        "arrival_stop" : {
+                           "location" : {
+                              "lat" : 37.77953919999999,
+                              "lng" : -122.5007186
+                           },
+                           "name" : "Geary Blvd & 39th Ave"
+                        },
+                        "arrival_time" : {
+                           "text" : "4:04pm",
+                           "time_zone" : "America/Los_Angeles",
+                           "value" : 1545869040
+                        },
+                        "departure_stop" : {
+                           "location" : {
+                              "lat" : 37.780687,
+                              "lng" : -122.472423
+                           },
+                           "name" : "Geary Blvd & Park Presidio Blvd"
+                        },
+                        "departure_time" : {
+                           "text" : "3:55pm",
+                           "time_zone" : "America/Los_Angeles",
+                           "value" : 1545868500
+                        },
+                        "headsign" : "Lands End - 48th Avenue",
+                        "line" : {
+                           "agencies" : [
+                              {
+                                 "name" : "San Francisco Municipal Transportation Agency",
+                                 "url" : "http://www.sfmta.com/"
+                              }
+                           ],
+                           "name" : "Geary Rapid",
+                           "short_name" : "38R",
+                           "vehicle" : {
+                              "icon" : "//maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png",
+                              "name" : "Bus",
+                              "type" : "BUS"
+                           }
+                        },
+                        "num_stops" : 5
+                     },
+                     "travel_mode" : "TRANSIT"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.6 mi",
+                        "value" : 951
+                     },
+                     "duration" : {
+                        "text" : "11 mins",
+                        "value" : 656
+                     },
+                     "end_location" : {
+                        "lat" : 37.7725818,
+                        "lng" : -122.4981436
+                     },
+                     "html_instructions" : "Walk to 866 38th Ave, San Francisco, CA 94121, USA",
+                     "polyline" : {
+                        "points" : "_yqeFn|tjV?uACaB?QAmACsB?QP?@AP?fJ]L?nFOtBILAfJWL?nFQ"
+                     },
+                     "start_location" : {
+                        "lat" : 37.7795193,
+                        "lng" : -122.5007184
+                     },
+                     "steps" : [
+                        {
+                           "distance" : {
+                              "text" : "0.1 mi",
+                              "value" : 178
+                           },
+                           "duration" : {
+                              "text" : "2 mins",
+                              "value" : 128
+                           },
+                           "end_location" : {
+                              "lat" : 37.77948,
+                              "lng" : -122.4986461
+                           },
+                           "html_instructions" : "Head \u003cb\u003eeast\u003c/b\u003e on \u003cb\u003eGeary Blvd\u003c/b\u003e toward \u003cb\u003e39th Ave\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "_yqeFn|tjV?uACaB?QAmACsB?QP?"
+                           },
+                           "start_location" : {
+                              "lat" : 37.7795193,
+                              "lng" : -122.5007184
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "0.5 mi",
+                              "value" : 773
+                           },
+                           "duration" : {
+                              "text" : "9 mins",
+                              "value" : 528
+                           },
+                           "end_location" : {
+                              "lat" : 37.7725818,
+                              "lng" : -122.4981436
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003e38th Ave\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the left\u003c/div\u003e",
+                           "maneuver" : "turn-right",
+                           "polyline" : {
+                              "points" : "wxqeFpotjV@AP?fJ]L?nFOtBILAfJWL?nFQ"
+                           },
+                           "start_location" : {
+                              "lat" : 37.77948,
+                              "lng" : -122.4986461
+                           },
+                           "travel_mode" : "WALKING"
+                        }
+                     ],
+                     "travel_mode" : "WALKING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "}{qeF~`ojV}BF@f@@hAFhC@vAY@AID?NxHRtLZbSThLNlL\\`Sf@xYThLFvERlLd@xX?Dc@BB??uACsBEaE?QP?RAzUw@rRk@"
+         },
+         "summary" : "",
+         "warnings" : [
+            "Walking directions are in beta.    Use caution – This route may be missing sidewalks or pedestrian paths."
+         ],
+         "waypoint_order" : []
+      },
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 37.7808461,
+               "lng" : -122.470594
+            },
+            "southwest" : {
+               "lat" : 37.7725818,
+               "lng" : -122.4983537
+            }
+         },
+         "copyrights" : "Map data ©2018 Google",
+         "fare" : {
+            "currency" : "USD",
+            "text" : "$2.75",
+            "value" : 2.75
+         },
+         "legs" : [
+            {
+               "arrival_time" : {
+                  "text" : "4:27pm",
+                  "time_zone" : "America/Los_Angeles",
+                  "value" : 1545870444
+               },
+               "departure_time" : {
+                  "text" : "4:05pm",
+                  "time_zone" : "America/Los_Angeles",
+                  "value" : 1545869133
+               },
+               "distance" : {
+                  "text" : "2.1 mi",
+                  "value" : 3354
+               },
+               "duration" : {
+                  "text" : "22 mins",
+                  "value" : 1311
+               },
+               "end_address" : "866 38th Ave, San Francisco, CA 94121, USA",
+               "end_location" : {
+                  "lat" : 37.7725818,
+                  "lng" : -122.4981436
+               },
+               "start_address" : "435 12th Ave, San Francisco, CA 94118, USA",
+               "start_location" : {
+                  "lat" : 37.7799944,
+                  "lng" : -122.4707172
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "328 ft",
+                        "value" : 100
+                     },
+                     "duration" : {
+                        "text" : "2 mins",
+                        "value" : 91
+                     },
+                     "end_location" : {
+                        "lat" : 37.7808461,
+                        "lng" : -122.4706016
+                     },
+                     "html_instructions" : "Walk to Geary Blvd & 12th Ave",
+                     "polyline" : {
+                        "points" : "}{qeF~`ojV}BFU@C?Q@?QAQ"
+                     },
+                     "start_location" : {
+                        "lat" : 37.7799944,
+                        "lng" : -122.4707172
+                     },
+                     "steps" : [
+                        {
+                           "distance" : {
+                              "text" : "292 ft",
+                              "value" : 89
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 70
+                           },
+                           "end_location" : {
+                              "lat" : 37.7808419,
+                              "lng" : -122.4706863
+                           },
+                           "html_instructions" : "Head \u003cb\u003enorth\u003c/b\u003e on \u003cb\u003e12th Ave\u003c/b\u003e toward \u003cb\u003eGeary Blvd\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "}{qeF~`ojV}BFU@C?Q@?Q"
+                           },
+                           "start_location" : {
+                              "lat" : 37.7799944,
+                              "lng" : -122.4707172
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "36 ft",
+                              "value" : 11
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 21
+                           },
+                           "end_location" : {
+                              "lat" : 37.7808461,
+                              "lng" : -122.4706016
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eGeary Blvd\u003c/b\u003e",
+                           "maneuver" : "turn-right",
+                           "polyline" : {
+                              "points" : "gareFx`ojVAQ"
+                           },
+                           "start_location" : {
+                              "lat" : 37.7808419,
+                              "lng" : -122.4706863
+                           },
+                           "travel_mode" : "WALKING"
+                        }
+                     ],
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "1.5 mi",
+                        "value" : 2428
+                     },
+                     "duration" : {
+                        "text" : "11 mins",
+                        "value" : 658
+                     },
+                     "end_location" : {
+                        "lat" : 37.775997,
+                        "lng" : -122.493133
+                     },
+                     "html_instructions" : "Bus towards Balboa + 33rd Avenue",
+                     "polyline" : {
+                        "points" : "gareFf`ojVTA?ZFrEDhB?RDvAH`FH|EFzD@ZFtEHtEHzD?ZJrEFtD?B@ZFtEFvEHvD?ZJvEFtEFtD@^JtEFxD@\\FtEHtEJrEVAtIUNAbJW?L"
+                     },
+                     "start_location" : {
+                        "lat" : 37.780839,
+                        "lng" : -122.470601
+                     },
+                     "transit_details" : {
+                        "arrival_stop" : {
+                           "location" : {
+                              "lat" : 37.775997,
+                              "lng" : -122.493133
+                           },
+                           "name" : "33rd Ave & Balboa St"
+                        },
+                        "arrival_time" : {
+                           "text" : "4:18pm",
+                           "time_zone" : "America/Los_Angeles",
+                           "value" : 1545869883
+                        },
+                        "departure_stop" : {
+                           "location" : {
+                              "lat" : 37.780839,
+                              "lng" : -122.470601
+                           },
+                           "name" : "Geary Blvd & 12th Ave"
+                        },
+                        "departure_time" : {
+                           "text" : "4:07pm",
+                           "time_zone" : "America/Los_Angeles",
+                           "value" : 1545869225
+                        },
+                        "headsign" : "Balboa + 33rd Avenue",
+                        "line" : {
+                           "agencies" : [
+                              {
+                                 "name" : "San Francisco Municipal Transportation Agency",
+                                 "url" : "http://www.sfmta.com/"
+                              }
+                           ],
+                           "name" : "Geary",
+                           "short_name" : "38",
+                           "vehicle" : {
+                              "icon" : "//maps.gstatic.com/mapfiles/transit/iw2/6/bus2.png",
+                              "name" : "Bus",
+                              "type" : "BUS"
+                           }
+                        },
+                        "num_stops" : 10
+                     },
+                     "travel_mode" : "TRANSIT"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.5 mi",
+                        "value" : 826
+                     },
+                     "duration" : {
+                        "text" : "9 mins",
+                        "value" : 561
+                     },
+                     "end_location" : {
+                        "lat" : 37.7725818,
+                        "lng" : -122.4981436
+                     },
+                     "html_instructions" : "Walk to 866 38th Ave, San Francisco, CA 94121, USA",
+                     "polyline" : {
+                        "points" : "_cqeFzlsjVH?LAFbE?PJdE?PH`E?PHdE?PAX@J?L?LBvA@f@fJWL?nFQ"
+                     },
+                     "start_location" : {
+                        "lat" : 37.7759985,
+                        "lng" : -122.4931017
+                     },
+                     "steps" : [
+                        {
+                           "distance" : {
+                              "text" : "30 ft",
+                              "value" : 9
+                           },
+                           "duration" : {
+                              "text" : "1 min",
+                              "value" : 6
+                           },
+                           "end_location" : {
+                              "lat" : 37.775881,
+                              "lng" : -122.493093
+                           },
+                           "html_instructions" : "Head \u003cb\u003esouth\u003c/b\u003e on \u003cb\u003e33rd Ave\u003c/b\u003e toward \u003cb\u003eBalboa St\u003c/b\u003e",
+                           "polyline" : {
+                              "points" : "_cqeFzlsjVH?LA"
+                           },
+                           "start_location" : {
+                              "lat" : 37.7759985,
+                              "lng" : -122.4931017
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "0.3 mi",
+                              "value" : 471
+                           },
+                           "duration" : {
+                              "text" : "6 mins",
+                              "value" : 336
+                           },
+                           "end_location" : {
+                              "lat" : 37.7756506,
+                              "lng" : -122.4983537
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eBalboa St\u003c/b\u003e",
+                           "maneuver" : "turn-right",
+                           "polyline" : {
+                              "points" : "gbqeFxlsjVFbE?PJdE?PH`E?PHdE?PAX@J?L?LBvA@f@"
+                           },
+                           "start_location" : {
+                              "lat" : 37.775881,
+                              "lng" : -122.493093
+                           },
+                           "travel_mode" : "WALKING"
+                        },
+                        {
+                           "distance" : {
+                              "text" : "0.2 mi",
+                              "value" : 346
+                           },
+                           "duration" : {
+                              "text" : "4 mins",
+                              "value" : 219
+                           },
+                           "end_location" : {
+                              "lat" : 37.7725818,
+                              "lng" : -122.4981436
+                           },
+                           "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003e38th Ave\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the left\u003c/div\u003e",
+                           "maneuver" : "turn-left",
+                           "polyline" : {
+                              "points" : "y`qeFtmtjVfJWL?nFQ"
+                           },
+                           "start_location" : {
+                              "lat" : 37.7756506,
+                              "lng" : -122.4983537
+                           },
+                           "travel_mode" : "WALKING"
+                        }
+                     ],
+                     "travel_mode" : "WALKING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "}{qeF~`ojViDJAc@VALlJ`@rUHpFRpKRhLZ`SZ~RVlMPjLJrEVAdJWbJW?L?EH?LAFbEJvEHrEFbGD~B@f@fJW|FQ"
+         },
+         "summary" : "",
+         "warnings" : [
+            "Walking directions are in beta.    Use caution – This route may be missing sidewalks or pedestrian paths."
+         ],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
 }
