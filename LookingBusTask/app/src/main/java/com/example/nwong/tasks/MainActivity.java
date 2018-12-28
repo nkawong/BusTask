@@ -2,6 +2,8 @@ package com.example.nwong.tasks;
 
 import android.Manifest;
 import android.app.Dialog;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -13,6 +15,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
@@ -33,6 +36,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.maps.model.EncodedPolyline;
+import com.google.maps.android.PolyUtil;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -40,7 +46,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.OnConnectionFailedListener {
     private static final String TAG = "The Map Activity";
@@ -52,6 +57,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private static final float DEFAULT_ZOOM =15f;
     private static final String DIRECTIONS_URL = "https://maps.googleapis.com/maps/api/directions/json";
     private static final String API_KEY = "AIzaSyCx8XJD1bSjLMFkMPVx1ILvwz810X-vUCc";
+    ListLayout mListLayout;
+    FragmentTransaction mfragmentTransaction;
 
     //temporary bounds
    // private static final LatLngBounds latLongBounds = new LatLngBounds(new LatLng(-40, -168),new LatLng(71,136));
@@ -64,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected GeoDataClient mGeoDataClient;
     private String destinationLatlng;
     private String startLatlng;
+    SupportMapFragment mapFragment;
 
     private static MainActivity instance = null;
     public static  MainActivity getInstance() {
@@ -155,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     public void initMap(){
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
 
         mapFragment.getMapAsync(MainActivity.this);
     }
@@ -307,15 +315,24 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             Log.d(TAG, "http result: " + result);
             response = new GoogleDirectionsResponse(result);
             response.parseRoutes();
-            //populateListView();
+            addPolyline(response.getFirstPolyline(),  mapFragment);
+//            switchListView()
             return;
         }
         //TODO Prompt message
         Log.d(TAG, "Response returned empty.");
     }
 
-//    public void populateListView() {
-//
+    private void addPolyline(String polyline, GoogleMap mMap) {
+        List<LatLng> decodedPath = PolyUtil.decode(new EncodedPolyline(response.getFirstPolyline()).getEncodedPath());
+        mMap.addPolyline(new PolylineOptions().addAll(decodedPath));
+    }
+
+//    public void switchListView() {
+//        mListLayout = new ListLayout();
+//        mfragmentTransaction = getFragmentManager().beginTransaction().add(R.id.fragment_container,mListLayout);
+//        mapFragment.getView().setVisibility(View.INVISIBLE);
+//        mfragmentTransaction.show(mListLayout).commit();
 //    }
 
 }
