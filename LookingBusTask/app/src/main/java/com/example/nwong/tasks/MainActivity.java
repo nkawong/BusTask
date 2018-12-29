@@ -11,6 +11,7 @@ import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -34,6 +35,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.maps.model.EncodedPolyline;
@@ -65,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     //variables
     private GoogleMap mMap;
+    private Polyline displayLine = null;
     private FusedLocationProviderClient mFuseLocationProviderClient;
     private PlaceAutoCompleteAdapter mPlaceAutoCompleteAdapter;
     //private GoogleApiClient mGoogleApiClient;
@@ -234,6 +237,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     private void findRoutes() {
+        if (displayLine != null) {
+            displayLine.setVisible(false);
+            displayLine = null;
+        }
+
         // safety checks
         if(startLatlng == null || startLatlng.isEmpty() ||
                 destinationLatlng == null || destinationLatlng.isEmpty()||
@@ -261,6 +269,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             list = geocoder.getFromLocationName(mSearchString,5);
 
             if(list == null || list.size() == 0){
+                //Cannot find the submitted Address.
                 return null;
             }
             Address location = list.get(0);
@@ -315,7 +324,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             Log.d(TAG, "http result: " + result);
             response = new GoogleDirectionsResponse(result);
             response.parseRoutes();
-            addPolyline(response.getFirstPolyline(),  mapFragment);
+            addPolyline(response.getFirstPolyline(),mMap);
 //            switchListView()
             return;
         }
@@ -325,7 +334,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private void addPolyline(String polyline, GoogleMap mMap) {
         List<LatLng> decodedPath = PolyUtil.decode(new EncodedPolyline(response.getFirstPolyline()).getEncodedPath());
-        mMap.addPolyline(new PolylineOptions().addAll(decodedPath));
+        displayLine = mMap.addPolyline(new PolylineOptions().addAll(decodedPath));
     }
 
 //    public void switchListView() {
